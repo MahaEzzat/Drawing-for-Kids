@@ -29,6 +29,10 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_SAVE,
 	ITM_LOAD,
 	ITM_PAL,
+	ITM_ROTATE,
+	ITM_MOVE,	
+	ITM_REDO,
+	ITM_UNDO,
 	ITM_PM,
 	//TODO: Add more items names here
 
@@ -44,7 +48,11 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	//TODO: Add more items names here
-
+	ITM_FIG,
+	ITM_COLOR,
+	ITM_FIG_COLOR,
+	ITM_DM,
+	ITM_RESTART,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };
@@ -63,10 +71,12 @@ struct UI_Info	//User Interface Info.
 		wx , wy,			//Window starting coordinates
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-		MenuItemWidth;		//Width of each item in toolbar menu
+		MenuItemWidth,		//Width of each item in toolbar Draw menu
+		PlayMenuItemWidth;		//Width of each item in toolbar Play menu
 	
 
 	color DrawColor;		//Drawing color
+	color Current;
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color
 	color MsgColor;			//Messages color

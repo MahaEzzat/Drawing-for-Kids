@@ -178,11 +178,38 @@
     <ClCompile Include="Actions\ActionSave.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Year 3 =%27%27)\C++\Project\CIE202-Proj-S2018\Project Framework New\CEllipse.cpp">
+    <ClCompile Include="Figures\CEllipse.cpp">
       <Filter>Figures Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Year 3 =%27%27)\C++\Project\CIE202-Proj-S2018\Project Framework New\CHexagon.cpp">
+    <ClCompile Include="Figures\CHexagon.cpp">
       <Filter>Figures Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionDrawMode.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionUndo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionRedo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionRotate.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionMove.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionFigColor.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionRestart.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionColor.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionFig.cpp">
+      <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,11 +331,38 @@
     <ClInclude Include="Actions\ActionSave.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Year 3 =%27%27)\C++\Project\CIE202-Proj-S2018\Project Framework New\CEllipse.h">
+    <ClInclude Include="Figures\CEllipse.h">
       <Filter>Figures Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Year 3 =%27%27)\C++\Project\CIE202-Proj-S2018\Project Framework New\CHexagon.h">
+    <ClInclude Include="Figures\CHexagon.h">
       <Filter>Figures Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionDrawMode.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionUndo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionRedo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionRotate.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionMove.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionFigColor.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionRestart.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionColor.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionFig.h">
+      <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

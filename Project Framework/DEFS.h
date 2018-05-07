@@ -13,20 +13,24 @@ enum ActionType //The actions supported (you can add more if needed)
 	CHNG_FILL_CLR,	//Change the filling color
 	//CHNG_BK_CLR,	//Change background color
 	DEL,			//Delete a figure(s)
-	//MOVE,			//Move a figure(s)
+	MOVE,			//Move a figure(s)
 	RESIZE,			//Resize a figure(s)
-	//ROTATE,			//Rotate a figure(s)
+	ROTATE,			//Rotate a figure(s)
 	SEND_BACK,		//Send a figure to the back of all figures
 	BRNG_FRNT,		//Bring a figure to the front of all figures
 	SAVE,			//Save the whole graph to a file
 	LOAD,			//Load a graph from a file
 	GET_COLOR,
 	EXIT,			//Exit the application
-
+	REDO,
+	UNDO,
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
-
+	FIG,
+	COLOR,
+	FIG_COLOR,
+	RESTART,
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode
 

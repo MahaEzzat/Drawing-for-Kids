@@ -14,7 +14,8 @@ GUI::GUI()
 	
 	UI.StatusBarHeight = 50;
 	UI.ToolBarHeight = 50;
-	UI.MenuItemWidth = 80;
+	UI.MenuItemWidth = 70;
+	UI.PlayMenuItemWidth = 100;
 	
 	UI.DrawColor = MAGENTA;	//Drawing color
 	UI.FillColor = CADETBLUE;	//Filling color
@@ -97,6 +98,11 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_LOAD: return LOAD;
 			case ITM_PAL:  return GET_COLOR;
 			case ITM_PM:   return TO_PLAY;
+			case ITM_MOVE: return MOVE;
+			case ITM_ROTATE: return ROTATE;
+			case ITM_REDO:  return REDO;
+			case ITM_UNDO:   return UNDO;
+
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -114,10 +120,34 @@ ActionType GUI::MapInputToActionType() const
 	}
 	else	//GUI is in PLAY mode
 	{
-		///TODO:
-		//perform checks similar to Draw mode checks above
-		//and return the correspoding action
-		return TO_PLAY;	//just for now. This should be updated
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check whick Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.PlayMenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+			switch (ClickedItemOrder)
+			{
+			case ITM_FIG: return FIG;
+			case ITM_FIG_COLOR: return FIG_COLOR;
+			case ITM_COLOR:  return COLOR;
+			case ITM_RESTART:  return RESTART;
+
+			case ITM_DM:   return TO_DRAW;
+			default: return EMPTY;	//A click on empty place in desgin toolbar
+			}
+		}
+
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
+
+		//[3] User clicks on the status bar
+		return STATUS;
 	}	
 
 }
@@ -141,6 +171,13 @@ void GUI::CreateStatusBar() const
 	pWind->DrawRectangle(0, UI.height - UI.StatusBarHeight, UI.width, UI.height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+
+color GUI::GetColors(const int x, const int y) const
+{
+	return pWind->GetColor(x, y);
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearStatusBar() const
 {
 	//Clear Status bar by drawing a filled white Square
@@ -152,6 +189,9 @@ void GUI::ClearStatusBar() const
 void GUI::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
+	pWind->SetBrush(UI.StatusBarColor);
+	pWind->SetPen(UI.StatusBarColor, 1);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
 
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
@@ -181,6 +221,10 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Load.jpg";
 	MenuItemImages[ITM_PAL] = "images\\MenuItems\\Pal.jpg";
 	MenuItemImages[ITM_PM] = "images\\MenuItems\\PM.jpg";
+	MenuItemImages[ITM_ROTATE] = "images\\MenuItems\\ROTATE.jpg";
+	MenuItemImages[ITM_MOVE] = "images\\MenuItems\\MOVE.jpg";
+	MenuItemImages[ITM_REDO] = "images\\MenuItems\\REDO.jpg";
+	MenuItemImages[ITM_UNDO] = "images\\MenuItems\\UNDO.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\EX.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
@@ -190,7 +234,7 @@ void GUI::CreateDrawToolBar() const
 	{
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 		pWind->SetPen(LIGHTBLUE1, 2);
-		pWind->DrawLine(i*(UI.MenuItemWidth) + 77, 0, i*(UI.MenuItemWidth) + 77, UI.ToolBarHeight);
+		pWind->DrawLine(i*(UI.MenuItemWidth) + (UI.MenuItemWidth - 3), 0, i*(UI.MenuItemWidth) + (UI.MenuItemWidth - 3), UI.ToolBarHeight);
 	}
 
 
@@ -205,7 +249,33 @@ void GUI::CreateDrawToolBar() const
 void GUI::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
+	pWind->SetBrush(UI.StatusBarColor);
+	pWind->SetPen(UI.StatusBarColor, 1);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
 	///TODO: write code to create Play mode menu
+	string MenuItemImages[PLAY_ITM_COUNT];
+	MenuItemImages[ITM_FIG] = "images\\MenuItems\\FIG.jpg";
+	MenuItemImages[ITM_COLOR] = "images\\MenuItems\\COLOR.jpg";
+	MenuItemImages[ITM_FIG_COLOR] = "images\\MenuItems\\FIG_COLOR.jpg";
+	MenuItemImages[ITM_RESTART] = "images\\MenuItems\\RESTART.jpg";
+	MenuItemImages[ITM_DM] = "images\\MenuItems\\DRAW_MODE.jpg";
+
+
+	//TODO: Prepare images for each menu item and add it to the list
+
+	//Draw menu item one image at a time
+	for (int i = 0; i<PLAY_ITM_COUNT; i++)
+	{
+		pWind->DrawImage(MenuItemImages[i], i*UI.PlayMenuItemWidth, 0, UI.PlayMenuItemWidth, UI.ToolBarHeight);
+		pWind->SetPen(LIGHTBLUE1, 2);
+		pWind->DrawLine(i*(UI.PlayMenuItemWidth) + (UI.PlayMenuItemWidth - 3), 0, i*(UI.PlayMenuItemWidth) + (UI.PlayMenuItemWidth - 3), UI.ToolBarHeight);
+	}
+
+
+
+	//Draw a line under the toolbar
+	pWind->SetPen(LIGHTBLUE1, 1);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -230,6 +300,19 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 
 color GUI::getCrntDrawColor() const	//get current drwawing color
 {	return UI.DrawColor;	}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+void GUI::DrawPallate() const	//get current drwawing color
+{
+	pWind->SetBrush(UI.StatusBarColor);
+	pWind->SetPen(UI.StatusBarColor, 1);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+	string pallate = "images\\MenuItems\\Pallate.jpg";
+	pWind->DrawImage(pallate, 2*UI.MenuItemWidth, 0, 13*UI.MenuItemWidth, UI.ToolBarHeight);
+	pWind->SetPen(LIGHTBLUE1, 2);
+	
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 
 color GUI::getCrntFillColor() const	//get current filling color
@@ -267,6 +350,8 @@ void GUI::DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected) c
 	
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
 void GUI::DrawEllip(Point P1, int major, int minor, GfxInfo EllipGfxInfo, bool selected) const
 {
 	color DrawingClr;
@@ -291,6 +376,8 @@ void GUI::DrawEllip(Point P1, int major, int minor, GfxInfo EllipGfxInfo, bool s
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////
+
 void GUI::DrawHex(int* Px, int* Py, GfxInfo HexGfxInfo, bool selected) const
 {
 	color DrawingClr;
@@ -314,6 +401,7 @@ void GUI::DrawHex(int* Px, int* Py, GfxInfo HexGfxInfo, bool selected) const
 	pWind->DrawPolygon(Px, Py, 6, style);
 
 }
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI::~GUI()

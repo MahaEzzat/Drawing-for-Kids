@@ -12,6 +12,15 @@
 #include "Actions\ActionGetColor.h"
 #include "Actions\ActionDelete.h"
 #include "Actions\ActionPlayMode.h"
+#include "Actions\ActionDrawMode.h"
+#include "Actions\ActionMove.h"
+#include "Actions\ActionRedo.h"
+#include "Actions\ActionUndo.h"
+#include "Actions\ActionRotate.h"
+#include "Actions\ActionColor.h"
+#include "Actions\ActionFig.h"
+#include "Actions\ActionFigColor.h"
+#include "Actions\ActionRestart.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -107,10 +116,39 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionPlayMode(this);
 			break;
 
+		case TO_DRAW:
+			newAct = new ActionDrawMode(this);
+			break;
+
 		case DEL:
 			newAct = new ActionDelete(this);
 			break;
 
+		case MOVE:
+			newAct = new ActionMove(this);
+			break;
+		case ROTATE:
+			newAct = new ActionRotate(this);
+			break;
+		case REDO:
+			newAct = new ActionRedo(this);
+			break;
+		case UNDO:
+			newAct = new ActionUndo(this);
+			break;
+
+		case FIG:
+			newAct = new ActionFig(this);
+			break;
+		case FIG_COLOR:
+			newAct = new ActionFigColor(this);
+			break;
+		case COLOR:
+			newAct = new ActionColor(this);
+			break;
+		case RESTART:
+			newAct = new ActionRestart(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			

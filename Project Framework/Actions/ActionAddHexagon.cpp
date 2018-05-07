@@ -1,5 +1,5 @@
 #include "ActionAddHexagon.h"
-#include "..\CHexagon.h"
+#include "..\Figures\CHexagon.h"
 
 #include "..\ApplicationManager.h"
 

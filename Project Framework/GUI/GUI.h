@@ -28,7 +28,8 @@ public:
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-
+	void DrawPallate() const;
+	color GetColors(const int x, const int y) const;
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
 	
@@ -36,6 +37,7 @@ public:
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected = false) const;  //Draw a Square
 	void DrawEllip(Point P1, int major, int minor, GfxInfo EllipGfxInfo, bool selected = false) const;  //Draw an Ellipse
 	void DrawHex(int* Px, int* Py, GfxInfo HexGfxInfo, bool selected = false) const; //Draw a Hexagon
+	
 	///TODO: Make similar functions for drawing all other figures.
 	
 	void PrintMessage(string msg) const;	//Print a message on Status bar

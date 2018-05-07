@@ -15,9 +15,10 @@ void ActionPlayMode::Execute()
 	//Get a Pointer to the Interface
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();
+	 
+	 pGUI->CreatePlayToolBar();
 
-
-	pGUI->PrintMessage("You want to switch to play mode");	
+	pGUI->PrintMessage("You are now in Play Mode");	
 	
 
 

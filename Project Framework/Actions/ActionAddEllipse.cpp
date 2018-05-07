@@ -1,5 +1,5 @@
 #include "ActionAddEllipse.h"
-#include "..\CEllipse.h"
+#include "..\Figures\CEllipse.h"
 
 #include "..\ApplicationManager.h"
 
