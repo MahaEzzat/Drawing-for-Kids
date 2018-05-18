@@ -16,7 +16,9 @@ void ActionChangeFC::Execute()
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();
 	 UI.ColorChagne = 0;
-	pGUI->PrintMessage("You want to change filling color");	
+	 UI.IsFilled = 1;
+	 pGUI->DrawColor();
+	 pGUI->PrintMessage("Select Color to draw filled figure");	
 	
 
 

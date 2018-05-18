@@ -34,7 +34,7 @@ public:
 	color GetColors(const int x, const int y) const;
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
-	
+	void DrawColor() const;
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected = false) const;  //Draw a Square
 	void DrawEllip(Point P1, int major, int minor, GfxInfo EllipGfxInfo, bool selected = false) const;  //Draw an Ellipse

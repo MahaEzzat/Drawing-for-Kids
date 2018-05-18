@@ -84,6 +84,7 @@ struct UI_Info	//User Interface Info.
 	color StatusBarColor;	//Status bar color
 	color MenuBarColor;
 	bool ColorChagne;		//true for changing current color is selected and false for chaning Filling color is changed
+	bool IsFilled;			//true for filled and false for frame
 	int PenWidth;			//width of the pen that draws shapes
 
 							/// Add more members if needed

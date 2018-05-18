@@ -19,7 +19,7 @@ GUI::GUI()
 	UI.PlayMenuItemWidth = 100;
 	
 	UI.DrawColor = CADETBLUE;	//Drawing color
-	UI.FillColor = BLACK;	//Filling color
+	UI.FillColor = ORCHID;	//Filling color
 	UI.MsgColor = LIGHTBLUE1;		//Messages color
 	UI.BkGrndColor = BINKBODY;	//Background color
 	UI.HighlightColor = GREENYELLOW;	//This color should NOT be used to draw figures. use if for highlight only
@@ -195,6 +195,17 @@ void GUI::ClearStatusBar() const
 	pWind->SetBrush(UI.StatusBarColor);
 	pWind->DrawRectangle(0, UI.height - UI.StatusBarHeight, UI.width, UI.height);
 }
+
+void GUI::DrawColor() const
+{
+	pWind->SetPen(UI.DrawColor, 5);
+	if (UI.IsFilled)
+	pWind->SetBrush(UI.FillColor);
+	else
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle((ITM_PAL+0.1)*UI.MenuItemWidth, 0.1*UI.ToolBarHeight , (ITM_PAL+0.8)*UI.MenuItemWidth , 0.9 * UI.ToolBarHeight);
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateDrawToolBar() const
 {
@@ -242,12 +253,13 @@ void GUI::CreateDrawToolBar() const
 	//Draw menu item one image at a time
 	for (int i = 0; i<DRAW_ITM_COUNT; i++)
 	{
+		if (!(i == ITM_PAL))
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 		pWind->SetPen(LIGHTBLUE1, 2);
 		pWind->DrawLine(i*(UI.MenuItemWidth) + (UI.MenuItemWidth - 3), 0, i*(UI.MenuItemWidth) + (UI.MenuItemWidth - 3), UI.ToolBarHeight);
 	}
-
-
+	
+	DrawColor();
 
 	//Draw a line under the toolbar
 	pWind->SetPen(LIGHTBLUE1, 1);

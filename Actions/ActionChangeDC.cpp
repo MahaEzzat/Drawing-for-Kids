@@ -16,7 +16,9 @@ void ActionChangeDC::Execute()
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();
 	 UI.ColorChagne = 1;
-	pGUI->PrintMessage("You want to change drawing color");	
+	 UI.IsFilled = 0;
+	 pGUI->DrawColor();
+	 pGUI->PrintMessage("Select Color to draw frame figure");
 	
 
 

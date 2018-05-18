@@ -19,7 +19,7 @@ void ActionAddHexagon::Execute()
 
 
 	GfxInfo HexGfxInfo;
-	HexGfxInfo.isFilled = false;	//default is not filled
+	HexGfxInfo.isFilled = UI.IsFilled;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
 	HexGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 	HexGfxInfo.FillClr = pGUI->getCrntFillColor();

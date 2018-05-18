@@ -72,13 +72,14 @@ void ActionLoad::Execute()
 		 UI.BkGrndColor.ucGreen = RGB[1];
 		 UI.BkGrndColor.ucBlue = RGB[2];
 		 pGUI->CreateDrawArea();
+		 pGUI->DrawColor();
 
 		 GfxInfo FigGfxInfo;
 		 FigGfxInfo.isFilled = false;	//default is not filled
 		 //get drawing, filling colors and pen width from the interface
 		 FigGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 		 FigGfxInfo.FillClr = pGUI->getCrntFillColor();
-		 FigGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
+		 FigGfxInfo.BorderWdth = pGUI->getCrntPenWidth(); 
 
 		 //Figures
 		 loadfile >> word;
@@ -90,21 +91,18 @@ void ActionLoad::Execute()
 			 {
 				 CSquare *R = new CSquare(loadfile,FigGfxInfo);
 				 pManager->AddFigure(R);
-				 //pManager->UpdateInterface();
 				 pGUI->PrintMessage("Loaded successfully");
 			 }
 			 else if (word == "ELPS")
 			 {
 				 CEllipse *R = new CEllipse(loadfile, FigGfxInfo);
 				 pManager->AddFigure(R);
-				 //pManager->UpdateInterface();
 				 pGUI->PrintMessage("Loaded successfully");
 			 }
 			 else if (word == "HEX")
 			 {
 				 CHexagon *R = new CHexagon(loadfile, FigGfxInfo);
 				 pManager->AddFigure(R);
-				 //pManager->UpdateInterface();
 				 pGUI->PrintMessage("Loaded successfully");
 			 } 
 			 else 
