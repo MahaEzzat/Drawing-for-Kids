@@ -198,12 +198,16 @@ void GUI::ClearStatusBar() const
 
 void GUI::DrawColor() const
 {
+	pWind->SetPen(UI.BkGrndColor, 1);
+	pWind->SetBrush(UI.BkGrndColor);
+	pWind->DrawRectangle((ITM_PAL)*UI.MenuItemWidth, 0, (ITM_PAL+0.9)*UI.MenuItemWidth,  0.95*UI.ToolBarHeight);
+	
 	pWind->SetPen(UI.DrawColor, 5);
 	if (UI.IsFilled)
 	pWind->SetBrush(UI.FillColor);
 	else
-	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle((ITM_PAL+0.1)*UI.MenuItemWidth, 0.1*UI.ToolBarHeight , (ITM_PAL+0.8)*UI.MenuItemWidth , 0.9 * UI.ToolBarHeight);
+	pWind->SetBrush(UI.BkGrndColor);
+	pWind->DrawRectangle((ITM_PAL+0.15)*UI.MenuItemWidth, 0.15*UI.ToolBarHeight , (ITM_PAL+0.75)*UI.MenuItemWidth , 0.75* UI.ToolBarHeight);
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -319,14 +323,20 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->DrawString(10, UI.height - (int)(UI.StatusBarHeight/1.5), msg);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::DrawPallate() const	//get current drwawing color
+color GUI::DrawPallate() 	//get current drwawing color
 {
+	Point P1;
+	
 	pWind->SetBrush(UI.StatusBarColor);
 	pWind->SetPen(UI.StatusBarColor, 1);
 	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
 	string pallate = "images\\MenuItems\\Pallate.jpg";
 	pWind->DrawImage(pallate, 2 * UI.MenuItemWidth, 0, 13 * UI.MenuItemWidth, UI.ToolBarHeight);
 	pWind->SetPen(LIGHTBLUE1, 2);
+	GetPointClicked(P1.x, P1.y);
+	color getcolor = GetColors(P1.x, P1.y);
+	return getcolor;
+	
 }
 
 color GUI::getCrntDrawColor() const	//get current drwawing color

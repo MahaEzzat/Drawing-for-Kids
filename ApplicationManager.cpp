@@ -22,6 +22,7 @@
 #include "Actions\ActionFigColor.h"
 #include "Actions\ActionRestart.h"
 #include "Actions\ActionSelect.h"
+#include <iostream>
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -74,7 +75,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			{
 				FigList[i]->SetSelected(false);
 			}
-			UpdateInterface();
 			newAct = new ActionAddSquare(this);
 			break;
 
@@ -83,7 +83,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			{
 				FigList[i]->SetSelected(false);
 			}
-			UpdateInterface();
 			newAct = new ActionAddEllipse(this);
 			break;
 
@@ -92,7 +91,6 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			{
 				FigList[i]->SetSelected(false);
 			}
-			UpdateInterface();
 			newAct = new ActionAddHexagon(this);
 			break;
 
@@ -210,6 +208,19 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	for (int i = FigCount - 1; i >= 0; i--)
 	{
 		if (FigList[i]->IsInside(x, y))
+		{
+			return FigList[i];
+		}
+	}
+	return NULL;
+}
+
+CFigure *ApplicationManager::GetSelectedFig() const
+{
+	for (int i = FigCount - 1; i >= 0; i--)
+	{
+	
+		if (FigList[i]->IsSelected())
 		{
 			return FigList[i];
 		}

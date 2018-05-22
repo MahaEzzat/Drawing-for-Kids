@@ -2,6 +2,7 @@
 #define ACTION_SELECT_H
 
 #include "Action.h"
+#include "..\ApplicationManager.h"
 
 class ActionSelect : public Action
 {

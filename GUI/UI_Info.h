@@ -22,13 +22,13 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_HEX,
 	ITM_DC,
 	ITM_FC,
+	ITM_PAL,
 	ITM_DEL,
 	ITM_RSZ,
 	ITM_STB,
 	ITM_BTF,
 	ITM_SAVE,
 	ITM_LOAD,
-	ITM_PAL,
 	ITM_ROTATE,
 	ITM_MOVE,
 	ITM_REDO,
@@ -83,7 +83,7 @@ struct UI_Info	//User Interface Info.
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
 	color MenuBarColor;
-	bool ColorChagne;		//true for changing current color is selected and false for chaning Filling color is changed
+	int ColorChagne;		//true for changing current color is selected and false for chaning Filling color is changed
 	bool IsFilled;			//true for filled and false for frame
 	int PenWidth;			//width of the pen that draws shapes
 

@@ -6,6 +6,7 @@
 #include "..\CMUgraphicsLib\CMUgraphics.h"
 
 
+
 //This class is responsible for Grphical User Interface handling
 //All user input and program outputs MUST be done through this class
 //No other class is allowed to perform direct i/o
@@ -30,7 +31,7 @@ public:
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-	void DrawPallate() const;
+	color DrawPallate();
 	color GetColors(const int x, const int y) const;
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area

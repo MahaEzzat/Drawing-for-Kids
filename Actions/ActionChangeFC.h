@@ -2,6 +2,7 @@
 #define ACTION_CHANGE_FC_H
 
 #include "Action.h"
+#include "..\ApplicationManager.h"
 
 //Add Square Action class
 class ActionChangeFC: public Action

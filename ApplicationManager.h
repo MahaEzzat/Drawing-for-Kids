@@ -23,6 +23,8 @@ private:
 	
 
 public:	
+	
+	CFigure* GetSelectedFig() const;
 	ApplicationManager(); 
 	~ApplicationManager();
 
