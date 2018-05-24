@@ -21,10 +21,9 @@ public:
 	window* CreateWind(int, int, int , int) const; //creates the application window
 
 	/////////// Input Functoinality  /////////////////
-	void GetPointClicked(int &x, int &y) const;//Get coordinate where user clicks
+	bool GetPointClicked(int &x, int &y) const;//Get coordinate where user clicks
 	string GetSrting() const ;	 //Returns a string entered by the user
-	ActionType MapInputToActionType(); //Read the user click and map to an action
-
+	ActionType MapInputToActionType(int x, int y);//Read the user click and map to an action
 
 	/////////// Output Functoinality  ////////////////
 	void CreateDrawArea() const;
@@ -36,6 +35,8 @@ public:
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
 	void DrawColor() const;
+	void ShowScore(int score[2]) const;
+	void ClearScore(bool Case) const;
 	// -- Figures Drawing functions
 	void DrawSquare(Point P1, int length, GfxInfo RectGfxInfo, bool selected = false) const;  //Draw a Square
 	void DrawEllip(Point P1, int major, int minor, GfxInfo EllipGfxInfo, bool selected = false) const;  //Draw an Ellipse

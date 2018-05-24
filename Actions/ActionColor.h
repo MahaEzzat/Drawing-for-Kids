@@ -2,6 +2,8 @@
 #define ACTION_COLOR_H
 
 #include "Action.h"
+#include <ctime>
+#include <cstdlib>
 
 //Add Square Action class
 class ActionColor : public Action

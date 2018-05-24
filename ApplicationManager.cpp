@@ -43,7 +43,7 @@ void ApplicationManager::Run()
 	do
 	{		
 		//1- Read user action
-		ActType = pGUI->MapInputToActionType();
+		ActType = pGUI->MapInputToActionType(UI.PointX,UI.PointY);
 
 		//2- Create the corresponding Action
 		Action *pAct = CreateAction(ActType);
@@ -196,8 +196,11 @@ void ApplicationManager::ExecuteAction(Action* &pAct)
 //Add a figure to the list of figures
 void ApplicationManager::AddFigure(CFigure* pFig)
 {
-	if(FigCount < MaxFigCount )
-		FigList[FigCount++] = pFig;	
+	if (FigCount < MaxFigCount)
+	{
+		pFig->setid(FigCount);
+		FigList[FigCount++] = pFig;
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
@@ -207,9 +210,12 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 
 	for (int i = FigCount - 1; i >= 0; i--)
 	{
-		if (FigList[i]->IsInside(x, y))
+		if (FigList[i])
 		{
-			return FigList[i];
+			if (FigList[i]->IsInside(x, y))
+			{
+				return FigList[i];
+			}
 		}
 	}
 	return NULL;
@@ -219,10 +225,12 @@ CFigure *ApplicationManager::GetSelectedFig() const
 {
 	for (int i = FigCount - 1; i >= 0; i--)
 	{
-	
-		if (FigList[i]->IsSelected())
+		if (FigList[i])
 		{
-			return FigList[i];
+			if (FigList[i]->IsSelected())
+			{
+				return FigList[i];
+			}
 		}
 	}
 	return NULL;
@@ -230,8 +238,10 @@ CFigure *ApplicationManager::GetSelectedFig() const
 
 void ApplicationManager::SelectFigure(int x, int y)
 {
+
 	for (int i = 0; i < FigCount; i++)
 	{
+		if (FigList[i])
 		FigList[i]->SetSelected(false);
 	}
 	CFigure* SelectedFig;
@@ -246,6 +256,36 @@ void ApplicationManager::SelectFigure(int x, int y)
 		pGUI->ClearStatusBar();
 	}
 }
+
+int ApplicationManager::ColorFigList(color* Col)
+{
+	ColorCount = 0;
+	for (int i = 0; i < FigCount; i++)
+		IDs[i] = 0;
+
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i])
+		{
+			for (int j = 0; j < sizeof(Col); j++)
+
+				if (FigList[i]->Iscolor(Col[j]))
+				{
+				IDs[i] = FigList[i]->getid();
+				ColorCount += 1;
+				}
+		}	
+	}
+
+	return ColorCount;
+}
+
+
+void ApplicationManager::RemoveFigure(int id)
+{
+	FigList[id]=NULL;
+
+}
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//
@@ -254,6 +294,7 @@ void ApplicationManager::SelectFigure(int x, int y)
 void ApplicationManager::UpdateInterface() const
 {	
 	for(int i=0; i<FigCount; i++)
+	if (FigList[i])
 		FigList[i]->DrawMe(pGUI);		//Call Draw function (virtual member fn)
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -261,6 +302,20 @@ void ApplicationManager::UpdateInterface() const
 GUI *ApplicationManager::GetGUI() const
 {	return pGUI; }
 
+void ApplicationManager::StartPlay() 
+{
+	for (int i = 0; i < FigCount; i++)
+		DrawFigList[i] = FigList[i];
+}
+
+void ApplicationManager::StartDraw()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		FigList[i] = DrawFigList[i];
+		FigList[i]->SetSelected(false);
+	}
+}
 void ApplicationManager::SaveAll(fstream &Outfile) 
 {
 	Outfile << std::to_string(pGUI->getCrntDrawColor().ucRed) << " " << std::to_string(pGUI->getCrntDrawColor().ucGreen) << " " << std::to_string(pGUI->getCrntDrawColor().ucBlue) << " ";

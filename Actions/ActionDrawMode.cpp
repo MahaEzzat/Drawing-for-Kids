@@ -17,7 +17,7 @@ void ActionDrawMode::Execute()
 	 pGUI->ClearStatusBar();
 	 
 	 pGUI->CreateDrawToolBar();
-
+	 pManager->StartDraw();
 	pGUI->PrintMessage("You are now in Draw Mode");	
 	
 

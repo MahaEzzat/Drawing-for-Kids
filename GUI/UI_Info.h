@@ -51,8 +51,8 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	ITM_FIG,
 	ITM_COLOR,
 	ITM_FIG_COLOR,
-	ITM_DM,
 	ITM_RESTART,
+	ITM_DM,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 
 };
@@ -86,7 +86,7 @@ struct UI_Info	//User Interface Info.
 	int ColorChagne;		//true for changing current color is selected and false for chaning Filling color is changed
 	bool IsFilled;			//true for filled and false for frame
 	int PenWidth;			//width of the pen that draws shapes
-
+	int PointX, PointY;
 							/// Add more members if needed
 
 }UI;	//create a global object UI

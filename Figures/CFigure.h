@@ -23,9 +23,10 @@ public:
 	void SetSelected(bool );	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
 	bool isFilled();
-
+	int getid() const;
+	bool Iscolor(color COLOR) const;
 	virtual void DrawMe(GUI*) const  = 0 ;		//Draw the figure
-	
+	void setid(int id);
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 

@@ -18,13 +18,12 @@ GUI::GUI()
 	UI.MenuItemWidth = 70;
 	UI.PlayMenuItemWidth = 100;
 	
-	UI.DrawColor = CADETBLUE;	//Drawing color
-	UI.FillColor = ORCHID;	//Filling color
+	UI.DrawColor = BLUE1;	//Drawing color
+	UI.FillColor = GOLD;	//Filling color
 	UI.MsgColor = LIGHTBLUE1;		//Messages color
 	UI.BkGrndColor = BINKBODY;	//Background color
 	UI.HighlightColor = GREENYELLOW;	//This color should NOT be used to draw figures. use if for highlight only
 	UI.StatusBarColor = WHITE;
-	//UI.MenuBarColor = WHITEGRAY;
 	UI.PenWidth = 3;	//width of the figures frames
 	UI.ColorChagne = 1;
 	
@@ -43,9 +42,13 @@ GUI::GUI()
 //======================================================================================//
 
 
-void GUI::GetPointClicked(int &x, int &y) const
+bool GUI::GetPointClicked(int &x, int &y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
+	if (y >= 0 && y < UI.ToolBarHeight && x>ITM_RESTART*UI.PlayMenuItemWidth)
+		return true;
+	else
+		return false;
 }
 
 string GUI::GetSrting() const 
@@ -68,11 +71,15 @@ string GUI::GetSrting() const
 }
 
 //This function reads the position where the user clicks to determine the desired action
-ActionType GUI::MapInputToActionType()
+ActionType GUI::MapInputToActionType(int x, int y)
 {
-	int x, y;
+	if (y==0 && x==0)
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
-
+	else
+	{
+		UI.PointX = 0;
+		UI.PointY = 0;
+	}
 	if (UI.InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
 	{
 		//[1] If user clicks on the Toolbar
@@ -193,7 +200,7 @@ void GUI::ClearStatusBar() const
 	//Clear Status bar by drawing a filled white Square
 	pWind->SetPen(UI.StatusBarColor, 1);
 	pWind->SetBrush(UI.StatusBarColor);
-	pWind->DrawRectangle(0, UI.height - UI.StatusBarHeight, UI.width, UI.height);
+	pWind->DrawRectangle(0, UI.height - UI.StatusBarHeight, 15*UI.width/20, UI.height);
 }
 
 void GUI::DrawColor() const
@@ -268,6 +275,7 @@ void GUI::CreateDrawToolBar() const
 	//Draw a line under the toolbar
 	pWind->SetPen(LIGHTBLUE1, 1);
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+	ClearScore(false); //Clear score Section in PlayMode
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -280,12 +288,11 @@ void GUI::CreatePlayToolBar() const
 	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
 	///TODO: write code to create Play mode menu
 	string MenuItemImages[PLAY_ITM_COUNT];
-	MenuItemImages[ITM_FIG] = "images\\MenuItems\\FIG.jpg";
-	MenuItemImages[ITM_COLOR] = "images\\MenuItems\\COLOR.jpg";
+	MenuItemImages[ITM_COLOR] = "images\\MenuItems\\FIG.jpg";
+	MenuItemImages[ITM_FIG] = "images\\MenuItems\\COLOR.jpg";
 	MenuItemImages[ITM_FIG_COLOR] = "images\\MenuItems\\FIG_COLOR.jpg";
 	MenuItemImages[ITM_RESTART] = "images\\MenuItems\\RESTART.jpg";
 	MenuItemImages[ITM_DM] = "images\\MenuItems\\DRAW_MODE.jpg";
-
 
 	//TODO: Prepare images for each menu item and add it to the list
 
@@ -302,6 +309,12 @@ void GUI::CreatePlayToolBar() const
 	//Draw a line under the toolbar
 	pWind->SetPen(LIGHTBLUE1, 1);
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+
+	//Draw score images
+	string right = "images\\ScoreItems\\Right.jpg";
+	string wrong = "images\\ScoreItems\\Wrong.jpg";
+	pWind->DrawImage(right, (16 * UI.width / 20) + 30, UI.height - UI.StatusBarHeight + 5, 50, UI.StatusBarHeight-25);
+	pWind->DrawImage(wrong, 18 * UI.width / 20, UI.height - UI.StatusBarHeight + 5, 50, UI.StatusBarHeight-25);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -338,7 +351,28 @@ color GUI::DrawPallate() 	//get current drwawing color
 	return getcolor;
 	
 }
-
+void GUI::ShowScore(int score[2]) const
+{
+	ClearScore(true);
+	pWind->SetPen(UI.MsgColor, 50);
+	pWind->SetFont(20, BOLD, BY_NAME, "Arial");
+	pWind->DrawString((17 * UI.width / 20)+30, UI.height - (int)(UI.StatusBarHeight / 1.5), to_string(score[0]));
+	pWind->DrawString(19 * UI.width / 20, UI.height - (int)(UI.StatusBarHeight / 1.5), to_string(score[1]));
+}
+void GUI::ClearScore(bool Case) const
+{
+	pWind->SetPen(UI.StatusBarColor, 1);
+	pWind->SetBrush(UI.StatusBarColor);
+	if (Case) //Clearthe current score to update it
+	{
+		pWind->DrawRectangle((17 * UI.width / 20) + 30, UI.height - UI.StatusBarHeight, 18 * UI.width / 20, UI.height);
+		pWind->DrawRectangle(19 * UI.width / 20, UI.height - UI.StatusBarHeight, UI.width, UI.height);
+	}
+	else //Clear Score Section
+	{
+	pWind->DrawRectangle(11 * UI.width / 15, UI.height - UI.StatusBarHeight, UI.width , UI.height);
+	}
+}
 color GUI::getCrntDrawColor() const	//get current drwawing color
 {	return UI.DrawColor;	}
 //////////////////////////////////////////////////////////////////////////////////////////

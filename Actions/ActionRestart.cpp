@@ -15,9 +15,7 @@ void ActionRestart::Execute()
 	//Get a Pointer to the Interface
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();
-
-
-	pGUI->PrintMessage("You want to restart the game");	
+	 pGUI->PrintMessage("You Restarted the game");
 	
 
 

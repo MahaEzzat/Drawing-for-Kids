@@ -17,8 +17,8 @@ void ActionPlayMode::Execute()
 	 pGUI->ClearStatusBar();
 	 
 	 pGUI->CreatePlayToolBar();
-
-	pGUI->PrintMessage("You are now in Play Mode");	
+	 pManager->StartPlay();
+	 pGUI->PrintMessage("You are now in Play Mode");	
 	
 
 

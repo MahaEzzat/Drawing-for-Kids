@@ -16,6 +16,15 @@ void CFigure::SetSelected(bool s)
 	Selected = s;
 }
 
+int CFigure::getid() const
+{
+	return ID;
+}
+
+void CFigure::setid(int id)
+{
+	ID=id;
+}
 bool CFigure::IsSelected() const
 {	return Selected; }
 
@@ -33,3 +42,19 @@ void CFigure::ChngFillClr(color Fclr)
 	FigGfxInfo.FillClr = Fclr; 
 }
 
+bool CFigure::Iscolor(color COLOR) const
+{
+	if (FigGfxInfo.isFilled)
+	{
+		if (FigGfxInfo.FillClr.ucBlue == COLOR.ucBlue && FigGfxInfo.FillClr.ucGreen == COLOR.ucGreen && FigGfxInfo.FillClr.ucRed == COLOR.ucRed)
+			return true;
+		else return false;
+	}
+
+	else
+	{
+		if (FigGfxInfo.DrawClr.ucBlue == COLOR.ucBlue && FigGfxInfo.DrawClr.ucGreen == COLOR.ucGreen && FigGfxInfo.DrawClr.ucRed == COLOR.ucRed)
+			return true;
+		else return false;
+	}
+}
