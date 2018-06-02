@@ -20,6 +20,6 @@ void ActionDrawMode::Execute()
 	 pManager->StartDraw();
 	pGUI->PrintMessage("You are now in Draw Mode");	
 	
-
+	pManager->AddAction();
 
 }

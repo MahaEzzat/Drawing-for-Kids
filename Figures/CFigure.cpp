@@ -53,7 +53,7 @@ bool CFigure::Iscolor(color COLOR) const
 
 	else
 	{
-		if (FigGfxInfo.DrawClr.ucBlue == COLOR.ucBlue && FigGfxInfo.DrawClr.ucGreen == COLOR.ucGreen && FigGfxInfo.DrawClr.ucRed == COLOR.ucRed)
+		if (WHITE.ucBlue == COLOR.ucBlue && WHITE.ucGreen == COLOR.ucGreen && WHITE.ucRed == COLOR.ucRed)
 			return true;
 		else return false;
 	}

@@ -26,9 +26,12 @@ public:
 	int getid() const;
 	bool Iscolor(color COLOR) const;
 	virtual void DrawMe(GUI*) const  = 0 ;		//Draw the figure
+	virtual void Move(int x, int y) = 0;
+	virtual string action() const = 0; //return string data of figure for do/redo
 	void setid(int id);
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	virtual string FigType() = 0;
 
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
@@ -37,13 +40,14 @@ public:
 
 
 	//virtual void Rotate() = 0;	//Rotate the figure
-	//virtual void Resize() = 0;	//Resize the figure
+	virtual bool Resize(double) = 0;	//Resize the figure
 	//virtual void Move() = 0;		//Move the figure
 
 	virtual void Save(fstream &OutFile, int id) = 0;	//Save the figure parameters to the file
 	virtual void Load(fstream &Infile) = 0;	//Load the figure parameters to the file
+	virtual void Load(istringstream &str) = 0; //Load from Action String do/redo
 
-	//virtual void PrintInfo(Output* pOut) = 0;	//print all figure info on the status bar
+	virtual void PrintInfo(GUI*) = 0;	//print important figure info on the status bar
 };
 
 #endif

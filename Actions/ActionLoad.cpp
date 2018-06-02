@@ -20,6 +20,8 @@ ActionLoad::ActionLoad(ApplicationManager * pApp) :Action(pApp)
 //Execute the action
 void ActionLoad::Execute()
 {
+	pManager->SetSaved(1);
+	
 	//Get a Pointer to the Interface
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();

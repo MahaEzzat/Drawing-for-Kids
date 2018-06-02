@@ -3,15 +3,13 @@
 
 #include "Action.h"
 
-//Add Square Action class
 class ActionBringFront : public Action
 {
 public:
 	ActionBringFront(ApplicationManager *pApp);
-	
-	//Add Square to the ApplicationManager
-	virtual void Execute() ;
-	
+
+	virtual void Execute();
+
 };
 
 #endif

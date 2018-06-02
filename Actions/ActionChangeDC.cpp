@@ -7,6 +7,8 @@ ActionChangeDC::ActionChangeDC(ApplicationManager * pApp) :Action(pApp)
 //Execute the action
 void ActionChangeDC::Execute()
 {
+	pManager->SetSaved(0);
+	
 	//Get a Pointer to the Interface
 	 GUI* pGUI = pManager->GetGUI();
 	 pGUI->ClearStatusBar();
@@ -42,6 +44,6 @@ void ActionChangeDC::Execute()
 	 pGUI->PrintMessage(str);
 	 pGUI->CreateDrawToolBar();
 	 
-
+	 pManager->AddAction();
 
 }

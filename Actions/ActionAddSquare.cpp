@@ -11,6 +11,8 @@ ActionAddSquare::ActionAddSquare(ApplicationManager * pApp):Action(pApp)
 //Execute the action
 void ActionAddSquare::Execute() 
 {
+	pManager->SetSaved(0);
+	
 	Point P1,P2;
 
 	//Get a Pointer to the Interface
@@ -61,4 +63,5 @@ void ActionAddSquare::Execute()
 	{
 		pGUI->PrintMessage("The square exceeds the dimensions of the window");
 	}
+	pManager->AddAction();
 }

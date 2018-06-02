@@ -11,6 +11,8 @@ ActionAddEllipse::ActionAddEllipse(ApplicationManager * pApp) :Action(pApp)
 //Execute the action
 void ActionAddEllipse::Execute()
 {
+	pManager->SetSaved(0);
+	
 	Point P1, P2, P3;
 
 	//Get a Pointer to the Interface
@@ -19,7 +21,7 @@ void ActionAddEllipse::Execute()
 
 	GfxInfo EllipGfxInfo;
 	EllipGfxInfo.isFilled = UI.IsFilled;	//default is not filled
-									//get drawing, filling colors and pen width from the interface
+											//get drawing, filling colors and pen width from the interface
 	EllipGfxInfo.DrawClr = pGUI->getCrntDrawColor();
 	EllipGfxInfo.FillClr = pGUI->getCrntFillColor();
 	EllipGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
@@ -57,11 +59,12 @@ void ActionAddEllipse::Execute()
 		//Step 3 - Create an ellipse with the parameters read from the user
 		CEllipse *R = new CEllipse(LeftMajor, Major, Minor, EllipGfxInfo);
 
-		//Step 4 - Add the Square to the list of figures
+		//Step 4 - Add the ellipse to the list of figures
 		pManager->AddFigure(R);
 	}
 	else
 	{
 		pGUI->PrintMessage("The ellipse exceeds the dimensions of the window");
-	}	
+	}
+	pManager->AddAction();
 }

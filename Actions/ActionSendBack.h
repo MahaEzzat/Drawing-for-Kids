@@ -3,13 +3,11 @@
 
 #include "Action.h"
 
-//Add Square Action class
 class ActionSendBack : public Action
 {
 public:
 	ActionSendBack(ApplicationManager *pApp);
 	
-	//Add Square to the ApplicationManager
 	virtual void Execute() ;
 	
 };

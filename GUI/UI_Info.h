@@ -29,7 +29,6 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_BTF,
 	ITM_SAVE,
 	ITM_LOAD,
-	ITM_ROTATE,
 	ITM_MOVE,
 	ITM_REDO,
 	ITM_UNDO,

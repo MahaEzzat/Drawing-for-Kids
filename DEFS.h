@@ -11,10 +11,10 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAW_HEX,		//Draw a Hexagon
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
+	//CHNG_BK_CLR,	//Change background color
 	DEL,			//Delete a figure(s)
 	MOVE,			//Move a figure(s)
 	RESIZE,			//Resize a figure(s)
-	ROTATE,			//Rotate a figure(s)
 	SEND_BACK,		//Send a figure to the back of all figures
 	BRNG_FRNT,		//Bring a figure to the front of all figures
 	SAVE,			//Save the whole graph to a file
@@ -31,7 +31,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	FIG_COLOR,
 	RESTART,
 	TO_DRAW,		//Switch interface to Draw mode
-	TO_PLAY			//Switch interface to Play mode
+	TO_PLAY,			//Switch interface to Play mode
 
 	///TODO: Add more action types (if needed)
 };

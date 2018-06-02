@@ -12,6 +12,8 @@ ActionSave::ActionSave(ApplicationManager * pApp) :Action(pApp)
 //Execute the action
 void ActionSave::Execute()
 {
+	pManager->SetSaved(1);
+	
 	// check if file exists & clr it  
 	
 	//Get a Pointer to the Interface

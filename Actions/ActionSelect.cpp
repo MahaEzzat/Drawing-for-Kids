@@ -10,5 +10,4 @@ void ActionSelect::Execute()
 {
 	GUI* pGUI = pManager->GetGUI();
 	pManager->SelectFigure(pGUI->CurrentClick.x, pGUI->CurrentClick.y);
-
 }

@@ -4,13 +4,11 @@
 #include "Action.h"
 #include "..\ApplicationManager.h"
 
-//Add Square Action class
 class ActionChangeDC: public Action
 {
 public:
 	ActionChangeDC(ApplicationManager *pApp);
 	
-	//Add Square to the ApplicationManager
 	virtual void Execute() ;
 	
 };

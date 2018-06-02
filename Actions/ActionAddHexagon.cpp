@@ -12,6 +12,8 @@ ActionAddHexagon::ActionAddHexagon(ApplicationManager * pApp) :Action(pApp)
 //Execute the action
 void ActionAddHexagon::Execute()
 {
+	pManager->SetSaved(0);
+	
 	Point P1,P2;
 
 	//Get a Pointer to the Interface
@@ -26,7 +28,7 @@ void ActionAddHexagon::Execute()
 	HexGfxInfo.BorderWdth = pGUI->getCrntPenWidth();
 
 	
-	//Step 1 - Read Square data from the user
+	//Step 1 - Read Hexagon data from the user
 
 	pGUI->PrintMessage("New Hexagon: Choose top left corner");	
 	//Read 1st point and store in point P1
@@ -71,4 +73,5 @@ void ActionAddHexagon::Execute()
 	{
 		pGUI->PrintMessage("The hexagon exceeds the dimensions of the window");
 	}
+	pManager->AddAction();
 }

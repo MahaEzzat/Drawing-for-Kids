@@ -40,12 +40,22 @@ GUI::GUI()
 //======================================================================================//
 //								Input Functions										    //
 //======================================================================================//
-
-
+bool GUI::IsMouseClicked()
+{
+	Point P;
+	pWind->GetMouseClick(P.x, P.y);
+	if (P.x == -1)
+		return false;
+	else return true;
+}
+void GUI::GetMouseCord(int &x, int &y)
+{
+	pWind->GetMouseCoord(x, y);
+}
 bool GUI::GetPointClicked(int &x, int &y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
-	if (y >= 0 && y < UI.ToolBarHeight && x>ITM_RESTART*UI.PlayMenuItemWidth)
+	if (y >= 0 && y < UI.ToolBarHeight && x>ITM_RESTART*UI.PlayMenuItemWidth && x<(ITM_DM+1)*UI.PlayMenuItemWidth)
 		return true;
 	else
 		return false;
@@ -107,7 +117,6 @@ ActionType GUI::MapInputToActionType(int x, int y)
 			case ITM_PAL:  return GET_COLOR;
 			case ITM_PM:   return TO_PLAY;
 			case ITM_MOVE: return MOVE;
-			case ITM_ROTATE: return ROTATE;
 			case ITM_REDO:  return REDO;
 			case ITM_UNDO:   return UNDO;
 
@@ -253,7 +262,6 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Load.jpg";
 	MenuItemImages[ITM_PAL] = "images\\MenuItems\\Pal.jpg";
 	MenuItemImages[ITM_PM] = "images\\MenuItems\\PM.jpg";
-	MenuItemImages[ITM_ROTATE] = "images\\MenuItems\\ROTATE.jpg";
 	MenuItemImages[ITM_MOVE] = "images\\MenuItems\\MOVE.jpg";
 	MenuItemImages[ITM_REDO] = "images\\MenuItems\\REDO.jpg";
 	MenuItemImages[ITM_UNDO] = "images\\MenuItems\\UNDO.jpg";

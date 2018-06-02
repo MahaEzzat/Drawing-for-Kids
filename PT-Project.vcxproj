@@ -137,6 +137,7 @@
     <ClCompile Include="Actions\ActionColor.cpp" />
     <ClCompile Include="Actions\ActionDelete.cpp" />
     <ClCompile Include="Actions\ActionDrawMode.cpp" />
+    <ClCompile Include="Actions\ActionExit.cpp" />
     <ClCompile Include="Actions\ActionFig.cpp" />
     <ClCompile Include="Actions\ActionFigColor.cpp" />
     <ClCompile Include="Actions\ActionGetColor.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="Actions\ActionColor.h" />
     <ClInclude Include="Actions\ActionDelete.h" />
     <ClInclude Include="Actions\ActionDrawMode.h" />
+    <ClInclude Include="Actions\ActionExit.h" />
     <ClInclude Include="Actions\ActionFig.h" />
     <ClInclude Include="Actions\ActionFigColor.h" />
     <ClInclude Include="Actions\ActionGetColor.h" />

@@ -17,6 +17,6 @@ void ActionRestart::Execute()
 	 pGUI->ClearStatusBar();
 	 pGUI->PrintMessage("You Restarted the game");
 	
-
+	 pManager->AddAction();
 
 }

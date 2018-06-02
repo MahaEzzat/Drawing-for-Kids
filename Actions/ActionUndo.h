@@ -3,15 +3,14 @@
 
 #include "Action.h"
 
-//Add Square Action class
 class ActionUndo : public Action
 {
+	enum { ConsActions = 100 };	//Max no of actions for undo/redo (consecutive)
 public:
 	ActionUndo(ApplicationManager *pApp);
-	
-	//Add Square to the ApplicationManager
-	virtual void Execute() ;
-	
+
+	virtual void Execute();
+
 };
 
 #endif

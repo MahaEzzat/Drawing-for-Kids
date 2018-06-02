@@ -20,6 +20,6 @@ void ActionPlayMode::Execute()
 	 pManager->StartPlay();
 	 pGUI->PrintMessage("You are now in Play Mode");	
 	
-
+	 pManager->AddAction();
 
 }
