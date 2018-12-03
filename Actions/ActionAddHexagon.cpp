@@ -39,7 +39,11 @@ void ActionAddHexagon::Execute()
 	pGUI->GetPointClicked(P2.x, P2.y);
 
 	pGUI->ClearStatusBar();
-
+	if (P1.x == P2.x && P1.y == P2.y)
+	{
+		pGUI->PrintMessage("NO Hexagon is Drawn: The two clicked points are the same");
+		return;
+	}
 	//Step 2 - prepare hexagon data
 	//User has entered two points P1&P2
 	int* Px = new int[6];

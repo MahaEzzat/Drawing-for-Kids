@@ -39,7 +39,11 @@ void ActionAddSquare::Execute()
 
 	pGUI->ClearStatusBar();
 
-
+	if (P1.x == P2.x && P1.y == P2.y)
+	{
+		pGUI->PrintMessage("NO Square is Drawn: The two clicked points are the same");
+		return;
+	}
 	//Step 2 - prepare square data
 	//User has entered two points P1&P2
 	//2.1- Identify the Top left corner of the square

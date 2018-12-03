@@ -43,6 +43,11 @@ void ActionAddEllipse::Execute()
 
 	pGUI->ClearStatusBar();
 
+	if (P1.x == P2.x && P1.y == P2.y || P1.x == P3.x && P1.y == P3.y || P3.x == P2.x && P3.y == P2.y)
+	{
+		pGUI->PrintMessage("NO Elipse is Drawn: The two clicked points are the same");
+		return;
+	}
 
 	//Step 2 - prepare ellipse data
 	//2.1- Set the left major point

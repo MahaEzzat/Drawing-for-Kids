@@ -365,7 +365,8 @@ void ApplicationManager::SelectFigure(int x, int y)
 	{
 		for (int i = 0; i < FigCount; i++)
 		{
-			FigList[i]->SetSelected(false);
+			if (FigList[i])
+				FigList[i]->SetSelected(false);
 		}
 		pGUI->ClearStatusBar();
 	}

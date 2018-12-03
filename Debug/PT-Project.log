@@ -1,68 +1,8 @@
-﻿Build started 03/06/2018 01:30:10 ص.
+﻿Build started 03/12/2018 09:39:04 م.
      1>Project "E:\Books\Year 4\Semster 2\FOCP\CIE202-Proj-S2018\Drawing-for-Kids\PT-Project.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt Actions\ActionAddEllipse.cpp Actions\ActionAddHexagon.cpp Actions\ActionAddSquare.cpp Actions\ActionBringFront.cpp Actions\ActionChangeDC.cpp Actions\ActionChangeFC.cpp Actions\ActionColor.cpp Actions\ActionDelete.cpp Actions\ActionDrawMode.cpp Actions\ActionExit.cpp Actions\ActionFig.cpp Actions\ActionFigColor.cpp Actions\ActionGetColor.cpp Actions\ActionLoad.cpp Actions\ActionMove.cpp Actions\ActionPlayMode.cpp Actions\ActionRedo.cpp Actions\ActionResize.cpp Actions\ActionRestart.cpp Actions\ActionRotate.cpp Actions\ActionSave.cpp Actions\ActionSelect.cpp Actions\ActionSendBack.cpp Actions\ActionUndo.cpp ApplicationManager.cpp Figures\CEllipse.cpp Figures\CFigure.cpp Figures\CHexagon.cpp Figures\CSquare.cpp GUI\GUI.cpp main.cpp
-         GUI.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\gui\gui.cpp(219): warning C4244: 'argument' : conversion from 'double' to 'const int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\gui\gui.cpp(226): warning C4244: 'argument' : conversion from 'double' to 'const int', possible loss of data
-         CSquare.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\csquare.cpp(76): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\csquare.cpp(107): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\csquare.cpp(149): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-         CHexagon.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(115): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(123): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(125): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(158): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(166): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(168): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(213): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(214): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(222): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\chexagon.cpp(224): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         CEllipse.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\cellipse.cpp(76): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\cellipse.cpp(105): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\cellipse.cpp(146): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\figures\cellipse.cpp(147): warning C4244: '*=' : conversion from 'double' to 'int', possible loss of data
-         ApplicationManager.cpp
-         ActionUndo.cpp
-         ActionSendBack.cpp
-         ActionSelect.cpp
-         ActionSave.cpp
-         ActionRestart.cpp
-         ActionResize.cpp
-         ActionRedo.cpp
-         ActionPlayMode.cpp
-         ActionMove.cpp
-         ActionLoad.cpp
-         ActionGetColor.cpp
-         ActionFigColor.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actionfigcolor.cpp(25): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-         ActionFig.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actionfig.cpp(18): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-         ActionExit.cpp
-         ActionDrawMode.cpp
-         Generating Code...
-         Compiling...
-         ActionDelete.cpp
-         ActionColor.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actioncolor.cpp(25): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-         ActionChangeFC.cpp
-         ActionChangeDC.cpp
-         ActionBringFront.cpp
-         ActionAddSquare.cpp
-         ActionAddHexagon.cpp
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actionaddhexagon.cpp(51): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actionaddhexagon.cpp(57): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>e:\books\year 4\semster 2\focp\cie202-proj-s2018\drawing-for-kids\actions\actionaddhexagon.cpp(59): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc120.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt Actions\ActionAddEllipse.cpp
          ActionAddEllipse.cpp
-         Generating Code...
-         Compiling...
-         main.cpp
-         CFigure.cpp
-         ActionRotate.cpp
-         Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug/PT Project.exe" /INCREMENTAL /NOLOGO odbc32.lib odbccp32.lib winmm.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Debug/PT Project.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\PT Project.lib" /MACHINE:X86 /SAFESEH .\Debug/ActionAddEllipse.obj
          .\Debug/ActionAddHexagon.obj
@@ -132,10 +72,8 @@
          .\Debug/main.obj
      1>ActionAddEllipse.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
          PT-Project.vcxproj -> E:\Books\Year 4\Semster 2\FOCP\CIE202-Proj-S2018\Drawing-for-Kids\.\Debug\PT Project.exe
-       BscMake:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o".\Debug/PT Project.bsc" .\Debug\ActionAddEllipse.sbr .\Debug\ActionAddHexagon.sbr .\Debug\ActionAddSquare.sbr .\Debug\ActionBringFront.sbr .\Debug\ActionChangeDC.sbr .\Debug\ActionChangeFC.sbr .\Debug\ActionColor.sbr .\Debug\ActionDelete.sbr .\Debug\ActionDrawMode.sbr .\Debug\ActionExit.sbr .\Debug\ActionFig.sbr .\Debug\ActionFigColor.sbr .\Debug\ActionGetColor.sbr .\Debug\ActionLoad.sbr .\Debug\ActionMove.sbr .\Debug\ActionPlayMode.sbr .\Debug\ActionRedo.sbr .\Debug\ActionResize.sbr .\Debug\ActionRestart.sbr .\Debug\ActionRotate.sbr .\Debug\ActionSave.sbr .\Debug\ActionSelect.sbr .\Debug\ActionSendBack.sbr .\Debug\ActionUndo.sbr .\Debug\ApplicationManager.sbr .\Debug\auxil.sbr .\Debug\CMUgraphics.sbr .\Debug\image.sbr .\Debug\jpegload.sbr .\Debug\keyqueue.sbr .\Debug\mousequeue.sbr .\Debug\windowinput.sbr .\Debug\jcomapi.sbr .\Debug\jcparam.sbr .\Debug\jdapimin.sbr .\Debug\jdapistd.sbr .\Debug\jdatasrc.sbr .\Debug\jdcoefct.sbr .\Debug\jdcolor.sbr .\Debug\jddctmgr.sbr .\Debug\jdhuff.sbr .\Debug\jdinput.sbr .\Debug\jdmainct.sbr .\Debug\jdmarker.sbr .\Debug\jdmaster.sbr .\Debug\jdmerge.sbr .\Debug\jdphuff.sbr .\Debug\jdpostct.sbr .\Debug\jdsample.sbr .\Debug\jdtrans.sbr .\Debug\jerror.sbr .\Debug\jidctflt.sbr .\Debug\jidctfst.sbr .\Debug\jidctint.sbr .\Debug\jidctred.sbr .\Debug\jmemmgr.sbr .\Debug\jmemnobs.sbr .\Debug\jquant1.sbr .\Debug\jquant2.sbr .\Debug\jutils.sbr .\Debug\CEllipse.sbr .\Debug\CFigure.sbr .\Debug\CHexagon.sbr .\Debug\CSquare.sbr .\Debug\GUI.sbr .\Debug\main.sbr
      1>Done Building Project "E:\Books\Year 4\Semster 2\FOCP\CIE202-Proj-S2018\Drawing-for-Kids\PT-Project.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:57.06
+Time Elapsed 00:00:05.20

@@ -62,9 +62,9 @@ void ActionFig::Execute()
 		pManager->SelectFigure(P1.x, P1.y);
 		Selected = pManager->GetSelectedFig();
 
+		answer = false;
 
-
-		if (Selected)
+		if (Selected != NULL)
 
 		{
 			if (Selected->FigType() == SHAPE)
